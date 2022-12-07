@@ -19,6 +19,7 @@ readme_from 'DB.pm';
 recursive_author_tests('xt');
 requires 'Class::Utils' => 0;
 requires 'Error::Pure' => 0;
+requires 'Scalar::Util' => 0;
 requires 'perl' => '5.8.0';
 resources 'bugtracker' => 'https://github.com/michal-josef-spacek/Backend-DB/issues';
 resources 'homepage' => 'https://github.com/michal-josef-spacek/Backend-DB';

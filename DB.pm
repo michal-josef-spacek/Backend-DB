@@ -5,6 +5,7 @@ use warnings;
 
 use Class::Utils qw(set_params);
 use Error::Pure qw(err);
+use Scalar::Util qw(blessed);
 
 our $AUTOLOAD;
 
@@ -60,6 +61,11 @@ sub new {
 	if (! defined $self->{'schema'}) {
 		err "Parameter 'schema' is required.";
 	}
+	if (! blessed($self->{'schema'}) || ! $self->schema->isa('DBIx::Class::Schema')) {
+		err "Parameter 'schema' must be a 'DBIx::Class::Schema' object.";
+	}
+
+	# Check schema version.
 	if (defined $self->{'schema_version'} && ! $self->{'schema'}->isa($self->{'schema_version'})) {
 		err "Parameter 'schema' must be '".$self->{'schema_version'}."' instance.";
 	}
