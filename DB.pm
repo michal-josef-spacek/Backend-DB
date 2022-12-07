@@ -3,6 +3,7 @@ package Backend::DB;
 use strict;
 use warnings;
 
+use Backend::DB::Transform;
 use Class::Utils qw(set_params);
 use Error::Pure qw(err);
 use Scalar::Util qw(blessed);
@@ -45,6 +46,9 @@ sub new {
 	# Create object.
 	my $self = bless {}, $class;
 
+	# Data object prefix.
+	$self->{'data_object_prefix'} = undef;
+
 	# Debug mode.
 	$self->{'debug'} = 0;
 
@@ -82,11 +86,14 @@ sub schema {
 sub _autoload {
 	my ($self, $package, $method_name, @params) = @_;
 
-	my $prefix;
-	my $table_name;
+	my ($prefix, $table_name, $obj);
 	if ($method_name =~ m/^([^_]+)_([\w]+)$/ms) {
 		$prefix = $1;
 		$table_name = $2;
+		if ($table_name =~ m/^(\w+)_obj$/ms) {
+			$table_name = $1;
+			$obj = 1;
+		}
 	} else {
 		err 'Method name is invalid.',
 			'Method name', $method_name,
@@ -115,16 +122,39 @@ sub _autoload {
 			return $row;
 		};
 	} elsif ($prefix eq 'fetch') {
-		$method_code = sub {
-			my ($self, $cond_hr, $attr_hr) = @_;
-			my @ret = $self->schema->resultset($source)->search($cond_hr, $attr_hr);
-			return wantarray ? @ret : $ret[0];
-		};
+		if ($obj) {
+			$method_code = sub {
+				my ($self, $cond_hr, $attr_hr) = @_;
+				my $transform = Backend::DB::Transform->new(
+					'data_object_prefix' => $self->{'data_object_prefix'},
+				);
+				my @ret = map { $transform->db2obj($_) }
+					$self->schema->resultset($source)->search($cond_hr, $attr_hr);
+				return wantarray ? @ret : $ret[0];
+			};
+		} else {
+			$method_code = sub {
+				my ($self, $cond_hr, $attr_hr) = @_;
+				my @ret = $self->schema->resultset($source)->search($cond_hr, $attr_hr);
+				return wantarray ? @ret : $ret[0];
+			};
+		}
 	} elsif ($prefix eq 'save') {
-		$method_code = sub {
-			my ($self, $struct_hr) = @_;
-			return $self->schema->resultset($source)->create($struct_hr);
-		};
+		if ($obj) {
+			$method_code = sub {
+				my ($self, $struct_hr) = @_;
+				my $transform = Backend::DB::Transform->new(
+					'data_object_prefix' => $self->{'data_object_prefix'},
+				);
+				my $obj_db = $self->schema->resultset($source)->create($struct_hr);
+				return $transform->db2obj($obj_db);
+			};
+		} else {
+			$method_code = sub {
+				my ($self, $struct_hr) = @_;
+				return $self->schema->resultset($source)->create($struct_hr);
+			};
+		}
 	} else {
 		err 'Prefix is invalid.',
 			'Prefix', $prefix,

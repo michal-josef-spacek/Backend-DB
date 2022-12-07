@@ -17,6 +17,7 @@ license 'bsd';
 name 'Backend-DB';
 readme_from 'DB.pm';
 recursive_author_tests('xt');
+requires 'Backend::DB::Transform' => 0;
 requires 'Class::Utils' => 0;
 requires 'Error::Pure' => 0;
 requires 'Scalar::Util' => 0;
