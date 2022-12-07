@@ -18,5 +18,7 @@ META.yml
 README
 t/Backend-DB/01-use.t
 t/Backend-DB/02-version.t
+t/Backend-DB/03-new.t
+t/data/test.db
 xt/Backend-DB/01-pod_coverage.t
 xt/Backend-DB/02-pod.t
