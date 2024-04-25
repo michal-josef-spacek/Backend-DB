@@ -93,6 +93,33 @@ sub obj2db {
 	# TODO
 }
 
+sub _obj_value {
+	my ($self, $key, $obj, $method_ar) = @_;
+
+	if (! defined $key) {
+		err 'Bad key.';
+	}
+	if (! defined $obj) {
+		err 'Bad object.',
+			'Error', 'Object is not defined.',
+		;
+	}
+	if (! blessed($obj)) {
+		err 'Bad object.',
+			'Error', 'Object in not a instance.',
+		;
+	}
+	my $value = $obj;
+	foreach my $method (@{$method_ar}) {
+		$value = $value->$method;
+		if (! defined $value) {
+			return;
+		}
+	}
+
+	return ($key => $value);
+}
+
 1;
 
 __END__
