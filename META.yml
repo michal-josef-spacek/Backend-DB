@@ -3,10 +3,13 @@ abstract: 'DB backend abstract class.'
 author:
   - 'Michal Josef Spacek <skim@cpan.org>'
 build_requires:
+  Class::Unload: 0
   English: 0
   Error::Pure::Utils: 0
   ExtUtils::MakeMaker: 6.36
   File::Object: 0
+  Mo: 0
+  Mo::utils: 0.26
   Schema::Test: 0
   Test::MockObject: 0
   Test::More: 0
