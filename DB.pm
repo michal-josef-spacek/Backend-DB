@@ -10,7 +10,7 @@ use Scalar::Util qw(blessed);
 
 our $AUTOLOAD;
 
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 sub AUTOLOAD {
 	my ($self, @params) = @_;
