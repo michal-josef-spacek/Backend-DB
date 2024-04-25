@@ -1,0 +1,67 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.88.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: RIPEMD160
+
+SHA256 630dab9c2b4ac3f54eb886601dfe468fb9f683ef1491c283ccdc4d5252a4c10d Changes
+SHA256 17bbbfece6fd13cb65bde23b3a366efb72d717f262ecaba3c4e16da51dc0d314 DB.pm
+SHA256 779858f402e9e211b7342b0cd1fbddcf48abeee058fa5603af6ddafda5b4c739 DB/Transform.pm
+SHA256 952755f5e946192da9050b41d61bfc56587b75ea44864fdf2fec98830bc9520c LICENSE
+SHA256 4b61acea7d9166c3968890829b7448e882f1c55c7ce1c9d83fae6a84d6c13588 MANIFEST
+SHA256 92dd73dc7bd1b6f1b5f0e4607d0c46ba293fbef45e5b09f72734264673daf14f META.yml
+SHA256 63d4147c333cabfcf1a88b6fbf99df42c616ae7be6106ce6c0d3c5f6bbd7d7ad Makefile.PL
+SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 README
+SHA256 67d139199c03b8bf8447a5a62f0d0b6dc1bd5bf6dbe04de6d21998c577823ed6 inc/Module/Install.pm
+SHA256 8bd506c33fb78f10f6451413e931ca23541fcc4eebe05fcb7c7c9577341223c4 inc/Module/Install/AuthorRequires.pm
+SHA256 1b5430a46a35142ef8914d8c745196fca825defc9dfa7e389299bf294613825e inc/Module/Install/AuthorTests.pm
+SHA256 6ebcc53a161dd5dc0aae69e4704575f2b00181901d768a82e26722a309cfdbe4 inc/Module/Install/Base.pm
+SHA256 d3f8c839d03fd21c197d05362dbb277cd7cadb15da6390d124b61e851f15146e inc/Module/Install/Can.pm
+SHA256 e9e72e18921c10c87bc4ea4c20af83e52015b9f5775d00ac64073042403717ca inc/Module/Install/Fetch.pm
+SHA256 a7a681bf2c9eee58a372cb642ffe42b0301d1200432ba8de9f7791cd1ecc9827 inc/Module/Install/Makefile.pm
+SHA256 aa887fa65a5eb6bbd1805706ce298b3f3cd55b353ecfd37aa7d35ae419331a49 inc/Module/Install/Metadata.pm
+SHA256 53825bc78e4c910b888160bc148c8bc211be58e02b99c8edcbf4854f95faa049 inc/Module/Install/ReadmeFromPod.pm
+SHA256 26b166ff62aacdb55317d1659f160aa4935097eea9810ea980e6d747206b5dc0 inc/Module/Install/Win32.pm
+SHA256 5f73a6851a91ea44e65b924f918743ad6e860620ad7a38a39d0295e0c5652a9f inc/Module/Install/WriteAll.pm
+SHA256 05142253351dc34148860732534863656d94de5ea5ed20d069c7c60e14eae13c t/Backend-DB-Transform/01-use.t
+SHA256 0a1e8f9f9461c25751602c67f183a5c31e31bc5e2d722c86f130f8a008f834c8 t/Backend-DB-Transform/02-version.t
+SHA256 a8d65a13ab85b4d6d9b15b634eb6e72cfb7c6ce44bbea972ea9071331af6417c t/Backend-DB-Transform/03-new.t
+SHA256 674f8907554d6c0c9bd3a8763eddb50193bad4feed265522ed07f9b57db25e35 t/Backend-DB-Transform/04-db2obj.t
+SHA256 e61c516d35da1b3fa96f097b5a12cc87fd7bb79719a01fc10f9777ee19f43020 t/Backend-DB/01-use.t
+SHA256 1a177f0fad32900aae09faad1082ecb1755b3c19892f1f8ce09438678af144de t/Backend-DB/02-version.t
+SHA256 d3d9043fa30b1e6e165367653fff253f972e812ba5efe71e70f2633c22dcfc78 t/Backend-DB/03-new.t
+SHA256 2eaaf49478faa55cabe61a1abb64dd4ecef19f50fc125cdb072ef0f1da498e97 t/data/ex1/Data/Foo/Mapping.pm
+SHA256 6d6436d7eb65b58bafcfd33a6787ee64df3e966c78ff3297540e88a4056ff8dd t/data/ex1/Data/Foo/Person.pm
+SHA256 28bca6d66cb0d9b5b1203466b07c507add76d370ac5b1775905b1d888bf057cd t/data/ex2/Data/Foo/Mapping.pm
+SHA256 6d6436d7eb65b58bafcfd33a6787ee64df3e966c78ff3297540e88a4056ff8dd t/data/ex2/Data/Foo/Person.pm
+SHA256 33bc2c2e6e77dc06ecea7762c7cb8a7d1003c9696b21ac742facec4b31c6ee67 t/data/ex3/Data/Foo/Mapping.pm
+SHA256 6d6436d7eb65b58bafcfd33a6787ee64df3e966c78ff3297540e88a4056ff8dd t/data/ex3/Data/Foo/Person.pm
+SHA256 4f41998a81db887b7ba8e55afc4e4323608b768a82cc551adc9b41aeba1e6d8c t/data/test.db
+SHA256 a2e655c583d87b7708170ef0e41a3524d156ec37fa0f0363f44014a7107525e5 xt/Backend-DB-Transform/01-pod_coverage.t
+SHA256 9b3df049fa5d9ab8f9f9cea4d5ac449fc021970f4c104a0df23c6397391f93a4 xt/Backend-DB-Transform/02-pod.t
+SHA256 10765b16b2d10a63133b2d326cd4cb74cb7fcf98924bfda1742daff146adb29f xt/Backend-DB/01-pod_coverage.t
+SHA256 0cc9f2c3676576865612c620baa4c5f47d785b74746e59257911c352498e3a25 xt/Backend-DB/02-pod.t
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAEBAwAdFiEEbhzVZugfHqSVNvE7YSp92FNcjtAFAmYqCVsACgkQYSp92FNc
+jtDWQgv/cGIZPMYkh9Agy7o/5y0f2Naj+2UdBnMA5OlYyKJlnw1+pdEK3CUcG0Gh
+BvuvK91UKyCPB514NGBxx6IpxI5slITynqW2HZZuP3lH2NCWqL2KzK60OTDDyOCQ
+2a16E+EX5z5b8Vwt7cHE6LLN0WHjVEh8IxSCvO4mbjb6a2NZuZuwnY6w4Yp69y5V
+hRfNwYJi2LZbo8Aw584PYUWmMHXHhTeePgzQB9TylTB+AqHOWzs/IaZD0GGJqWLp
+m1OiHfMne0xrY1sdYb4wm/zVyFgBU+s/3ToeKJp1xRhNnfl3SkGc+Y4KfIN//KSN
+SSkEjvifvvzs1DXOlTFH5u7xBHPg8F0yYIzFc82XQ/BScR+N8cHWmBXBLcQwCW22
+8CNwfj+fCKd995hHb5D2OMga1pq4e7ihymO0CBGTzlC/Xunrwj9JSmxzg10pship
+IJ6wa1dFv/+4sD0VUVfWjpL9+2SCFhiB5i38E5o6c2E6IEcXiNHaybXKR6edGxfr
+cFJVscZ7
+=pi6l
+-----END PGP SIGNATURE-----
