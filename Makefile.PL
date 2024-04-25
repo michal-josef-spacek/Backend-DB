@@ -17,7 +17,6 @@ license 'bsd';
 name 'Backend-DB';
 readme_from 'DB.pm';
 recursive_author_tests('xt');
-requires 'Backend::DB::Transform' => 0;
 requires 'Class::Utils' => 0;
 requires 'Error::Pure' => 0;
 requires 'Scalar::Util' => 0;
@@ -26,7 +25,7 @@ resources 'bugtracker' => 'https://github.com/michal-josef-spacek/Backend-DB/iss
 resources 'homepage' => 'https://github.com/michal-josef-spacek/Backend-DB';
 resources 'repository' => 'git://github.com/michal-josef-spacek/Backend-DB';
 test_requires 'English' => 0;
-test_requires 'Error::Put::Utils' => 0;
+test_requires 'Error::Pure::Utils' => 0;
 test_requires 'File::Object' => 0;
 test_requires 'Schema::Test' => 0;
 test_requires 'Test::MockObject' => 0;
