@@ -155,6 +155,25 @@ sub _autoload {
 				return $self->schema->resultset($source)->create($struct_hr);
 			};
 		}
+	} elsif ($prefix eq 'update') {
+		if ($obj) {
+			$method_code = sub {
+				my ($self, $cond_hr, $struct_hr) = @_;
+				my $transform = Backend::DB::Transform->new(
+					'data_object_prefix' => $self->{'data_object_prefix'},
+				);
+				my $obj_db = $self->schema->resultset($source)->search($cond_hr)->single;
+				$obj_db->update($struct_hr);
+				return $transform->db2obj($struct_hr);
+			};
+		} else {
+			$method_code = sub {
+				my ($self, $cond_hr, $struct_hr) = @_;
+				my $obj_db = $self->schema->resultset($source)->search($cond_hr)->single;
+				$obj_db->update($struct_hr);
+				return $struct_hr;
+			};
+		}
 	} else {
 		err 'Prefix is invalid.',
 			'Prefix', $prefix,
