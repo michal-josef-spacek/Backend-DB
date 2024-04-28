@@ -1,0 +1,9 @@
+TODO
+====
+1. There is situation:
+   * Save of record when id exists -> update
+   * Save of record when id exists and unique email exists in other record -> not update
+2.
+
+Applied
+=======
